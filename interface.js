@@ -64,8 +64,9 @@ signup2.style.display = 'block'
     const Signin2 =  document.getElementById('Signin2');
     const errorMessage = document.getElementById('error-message')
   const overlaychildid2 = document.getElementById('overlaychildid2')
+  const minimum = document.getElementById('minimumbalance');
     Signup.addEventListener('click',function(){
-        if(!nameinput.value || !emailinput.value || !passwordinput.value){
+        if(!nameinput.value || !emailinput.value || !passwordinput.value || !minimum.value){
   
             errorMessage.textContent = 'All fields are required.';
             errorMessage.style.color = 'red'
@@ -80,7 +81,11 @@ signup2.style.display = 'block'
            email.innerText = `${localStorage.getItem('UserMail')}`;
            overlaychildid2.style.display = 'block'
            overlaychild.style.opacity = '0';
-           overlaychild.classList.add('transparent')
+           overlaychild.classList.add('transparent');
+           
+
+localStorage.setItem('newbalance',parseFloat(minimum.value));
+document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
         }
  
  
@@ -264,9 +269,6 @@ balance = document.getElementById('Balance')
 
 //   })
 
-
-localStorage.setItem('newbalance',0)
-document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
   function initializeBalance() {
     let storedBalance = localStorage.getItem('totalBalance');
     if (!storedBalance) {
