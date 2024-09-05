@@ -266,6 +266,7 @@ balance = document.getElementById('Balance')
 
 
 localStorage.setItem('newbalance',0)
+document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
   function initializeBalance() {
     let storedBalance = localStorage.getItem('totalBalance');
     if (!storedBalance) {
