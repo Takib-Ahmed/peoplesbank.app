@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Sign Up Interface</title>
+    <script src="interface.js" defer></script>
+    <link rel="stylesheet" href="interface.css">
+ 
+</head>
+
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-container ">
+            <div class="form-containerchild left" id="left">
+                <h2>Login Account</h2>
+                <input type="text" placeholder="Email"         id="loginmail">
+                <input type="password" placeholder="Password"  id="loginpassword">
+                <center class="error" id="error-messages" style="font-size: small;"></center>
+                <button id="Signin" >Sign In</button>
+                <button id="Signin2" style="display: none;" >Sign In</button>
+
+            </div>
+            <div class="form-container form-containerchild right" id="right">
+           <div class="createaccount" id="createaccountform" style="display: none;">
+            <h2>Create Account</h2>
+            <input type="text" placeholder="Name" f        id="nameinput"   >
+            <input type="email" placeholder="Email"       id="emailinput" >
+            <input type="password" placeholder="Password" id="Passwordinput">     
+            <center class="error" id="error-message" style="font-size: small;"></center>
+            <button id="Signup" >Sign Up</button>
+      
+           </div>
+
+
+                <div class="transaction-inputs" id="transactionform">
+                    <div class="transaction-item">
+                        <h3>Deposit</h3>
+                        <input type="number" id="deposit-input" placeholder="Enter deposit amount">
+                        <button id="deposit" class="deposit" >Deposit</button>
+                    </div>
+                    <div class="transaction-item">
+                        <h3>Withdraw</h3>
+                        <input type="number" id="withdraw-input" placeholder="Enter withdrawal amount">
+                        <button class="withdraw" id="withdraw">Withdraw</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Overlay -->
+        <div class="overlay ">
+            <div class="overlaychild  " id="overlaychildid" >
+                <h2>Hello Friend!</h2>
+                <p style="line-height: 25px;color: #51ffd9;">Register with your account details to access your account</p>
+                <button id="signupbutton">Sign Up</button>
+                <button id="signupbutton2" style="display: none;">Sign Up</button>
+            </div>
+               <div class="overlaychild" id="overlaychildid2" style="display: none;"><br><br><br><br><br><br>
+                <h2>🔰Welcome To Our Bank🏦!</h2>
+                <p style="font-size: medium;color: #a2ff51;">Thanks for choosing US</p>
+                <h3 style="color: #51fcff;">Login with your account details</h3>
+        
+                <button id="signupbutton2" style="display: none;">Sign Up</button>
+            </div>
+
+            <div class=" overlaychild " style="background: linear-gradient(to right, #6051ff, #8051ff);    ;"
+                id="rightfirst">
+   <div id="Createaccount" >
+    <h2>Create Your Account</h2>
+    <p style="color: #51fcff;">If you already have an account click here to </p>
+    <br>
+    <button id="signin">Sign In</button>
+   </div>
+   <div class="profile" id="profile">
+ 
+ 
+      <div class="profile-container">
+      <div id="profileonly">
+                <h2>Welcome Back</h2><br>
+        <div class="profile-pic">
+            <label class="-label" for="file">
+              <span class="glyphicon glyphicon-camera"></span>
+              <span>Change profile</span>
+            </label>
+            <input id="file" type="file" onchange="loadFile(event)"/>
+            <img src="https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg" id="output"  />
+          </div>
+        <div class="profile-details">
+            <!-- <h2>Account Holder</h2> --> <br>
+            <p><strong>Name:</strong> <span id="name"> </span></p>
+            <!-- <p><strong>Account Number:</strong><span id="number"> </span></p> -->
+            <p><strong>Email:</strong><span id="email"></span></p>
+        </div>
+        <div class="account-summary">
+            <h2>Account Summary</h2>
+            <p><strong>Balance:</strong> <span id="Balance"></span></p>
+            <p><strong>Account Type:</strong> Savings</p>
+            <p><strong>Interest Rate:</strong> 1.5%</p>
+        </div>
+    </div>
+        <!-- Transactions History Button -->
+        <button class="toggle-btn" id="Transactions">Transactions History</button>
+
+        <div class="recent-transactions" id="transactions">
+            <h2>Recent Transactions</h2>
+            <table id="table">
+                <thead>
+                    <tr >
+                        <th>Date</th>
+                        <th>time</th>
+                        <th>Amount</th>
+                        <th>Balance</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody" >
+       
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+   </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="popup-bg" id="popup-bg">
+        <div class="popup-box">
+          <h2>
+
+          </h2>
+          <p></p>
+          <!-- <button class="confirm-btn" onclick="confirmAction()">Yes</button>
+          <button class="cancel-btn" onclick="closePopup()">No</button> -->
+        </div>
+      </div>
+</body>
+
+</html>
