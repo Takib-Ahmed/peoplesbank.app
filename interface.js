@@ -88,7 +88,8 @@ signup2.style.display = 'block'
 
 localStorage.setItem('newbalance',parseFloat(minimum.value));
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
-document.getElementById('deposit-input').focus()
+document.getElementById('deposit-input').focus();
+
         }
  
  
@@ -181,7 +182,7 @@ document.getElementById('deposit-input').focus()
             }
      
     else{
-        alert('Wrong info') 
+        alert('Please Refresh the page once') 
     }
         }
 
@@ -442,6 +443,7 @@ document.getElementById('withdraw-input').addEventListener('input',(e)=>{
     
 })
 withdraw = document.getElementById('withdraw')
+let currentBalance = parseInt(localStorage.getItem('newbalance'));
 withdraw.addEventListener('click',function withdraw() {
     const windrawamount = parseFloat(document.getElementById('withdraw-input').value);
 localStorage.setItem('withdraw',windrawamount)
@@ -458,7 +460,11 @@ let currentBalance = parseInt(localStorage.getItem('newbalance'));
         // Update the displayed total balance
         document.getElementById('Balance').textContent = `${newlyBalance.toLocaleString()}tk`;
 
-    } else {
+    }
+    else if (windrawamount>currentBalance){
+        alert("Insufficient Balance");
+    }
+     else {
         alert("Please enter a valid deposit amount");
     }
 
@@ -522,14 +528,14 @@ rememberme.addEventListener('click',function(){
 })
 
 
-// if(!(mailmatch.value=='')  || !(passwordmatch.value=='')){
+if(!(mailmatch.value=='')  || !(passwordmatch.value=='')){
 
 
-// overlaychildid.innerHTML = ` <h2 >Welcome Back</h2>
-//                 <p style="line-height: 25px;color: #51ffd9;">Login with your account details to access your account</p>`
-//                 rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
+overlaychildid.innerHTML = ` <h2 >Welcome Back</h2>
+                <p style="line-height: 25px;color: #51ffd9;">Login with your account details to access your account</p>`
+                rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
                 
-// }
+}
 loginmail.focus()
 const depositAmount = document.getElementById('deposit-input')
 
