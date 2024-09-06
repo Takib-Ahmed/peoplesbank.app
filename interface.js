@@ -22,7 +22,7 @@ overlaychild.classList.toggle('overlaychild1');
     createaccountform.style.display = 'block';
     errorMessages.textContent = '';
     errorMessages.style.color = '';
-
+    nameinput.focus()
 
         
     });
@@ -41,6 +41,7 @@ overlaychild.classList.toggle('overlaychild1');
     createaccountform.style.display = 'block';
     errorMessages.textContent = '';
     errorMessages.style.color = '';
+    nameinput.focus()
 
         
     }); 
@@ -82,10 +83,12 @@ signup2.style.display = 'block'
            overlaychildid2.style.display = 'block'
            overlaychild.style.opacity = '0';
            overlaychild.classList.add('transparent');
+              rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
            
 
 localStorage.setItem('newbalance',parseFloat(minimum.value));
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
+document.getElementById('deposit-input').focus()
         }
  
  
@@ -114,6 +117,7 @@ document.getElementById('Balance').textContent = `${parseInt(localStorage.getIte
        
             if(   loginmail.value == mailmatch ,
                 loginpassword.value == passwordmatch){
+                    depositAmount.focus()
                 transactionform.style.display = 'block';
             createaccount.style.display = 'none';
             profile.style.display = 'block';
@@ -131,6 +135,7 @@ document.getElementById('Balance').textContent = `${parseInt(localStorage.getIte
                   Name.innerText = `${localStorage.getItem('Username')}`;
            email.innerText = `${localStorage.getItem('UserMail')}`;
                overlaychildid2.style.display = 'none';
+               document.getElementById('deposit-input').focus()
                
             }
             else{
@@ -154,6 +159,7 @@ document.getElementById('Balance').textContent = `${parseInt(localStorage.getIte
        
             if(  loginmail.value ==  mailmatch,
                 loginpassword.value == passwordmatch){
+                    depositAmount.focus()
                 signin.click();
                 transactionform.style.display = 'block';
                 createaccount.style.display = 'none';
@@ -221,16 +227,50 @@ const userdata = {
 }
 nameinput.addEventListener('input',(e)=>{
     userdata.name = e.target.value
-    localStorage.setItem('Username',userdata.name)
+    localStorage.setItem('Username',userdata.name);
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+        emailinput.focus()
+        }
+      })
 })
 emailinput.addEventListener('input',(e)=>{
     userdata.mail = e.target.value
     localStorage.setItem('UserMail',userdata.mail)
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+      passwordinput.focus()
+        }
+      })
 })
 passwordinput.addEventListener('input',(e)=>{
     userdata.password = e.target.value
     localStorage.setItem('Password',userdata.password)
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+      minimum.focus()
+        }
+      })
+    
 })
+minimum.addEventListener('input',(e)=>{
+
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+          Signup.click()
+        }
+      })
+    
+})
+
 
 const Name = document.getElementById('name')
 const email = document.getElementById('email')
@@ -240,6 +280,30 @@ const loginmail = document.getElementById('loginmail')
 const loginpassword = document.getElementById('loginpassword')
 const mailmatch = localStorage.getItem('UserMail')
 const passwordmatch = localStorage.getItem('Password') 
+loginmail.addEventListener('input',(e)=>{
+
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+         loginpassword.focus()
+        }
+      })
+    
+})
+loginpassword.addEventListener('input',(e)=>{
+
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+       
+         Signin2.click()
+         Signin.click()
+        }
+      })
+    
+})
 
 
 
@@ -282,6 +346,18 @@ balance = document.getElementById('Balance')
 }
 
 // Function to make a deposit and store it in localStorage
+document.getElementById('deposit-input').addEventListener('input',(e)=>{
+
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+         
+        document.getElementById('withdraw-input').focus()
+        }
+      })
+    
+})
 
 deposit.addEventListener('click',function makeDeposit() {
     const depositAmount = parseFloat(document.getElementById('deposit-input').value);
@@ -353,7 +429,18 @@ function initializewithdraw() {
 }
 
 
+document.getElementById('withdraw-input').addEventListener('input',(e)=>{
 
+    e.target.addEventListener("keypress", function (event) {
+
+        if (event.key === "Enter") {
+          event.preventDefault();
+          
+        
+        }
+      })
+    
+})
 withdraw = document.getElementById('withdraw')
 withdraw.addEventListener('click',function withdraw() {
     const windrawamount = parseFloat(document.getElementById('withdraw-input').value);
@@ -415,6 +502,8 @@ localStorage.setItem('tableinnerhtml',tableinside);
 }
     
 )
+
+
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
 window.onload = initializewithdraw;
 
@@ -425,13 +514,24 @@ tableinnerhtml = JSON.parse(localStorage.getItem('tableinnerhtml'));
 table.innerHTML = tableinnerhtml;
 console.log(table)
 // window.onload = appendrow();
-
-if(!(mailmatch.value = '' )|| !(passwordmatch.value ='')){
 const overlaychildid = document.getElementById('overlaychildid');
+const rememberme = document.getElementById('rememberme');
+rememberme.addEventListener('click',function(){
+    loginmail.value = localStorage.getItem('Username')
+    loginpassword.value = localStorage.getItem('Password')
+})
+
+
+if(!(mailmatch.value=='')  || !(passwordmatch.value=='')){
+
+
 overlaychildid.innerHTML = ` <h2 >Welcome Back</h2>
                 <p style="line-height: 25px;color: #51ffd9;">Login with your account details to access your account</p>`
+                rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
+                
 }
-
+loginmail.focus()
+const depositAmount = document.getElementById('deposit-input')
 
 }
 
