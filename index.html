@@ -7,14 +7,14 @@
     <title>Login and Sign Up Interface</title>
     <script src="interface.js" defer></script>
     <link rel="stylesheet" href="interface.css">
- 
+
 </head>
 
 <body>
     <div class="container">
         <!-- Login Form -->
         <div class="form-container ">
-            <div class="form-containerchild left" id="left">
+            <div class="form-containerchild left" id="left" style="">
                 <h2>Login Account</h2>
                 <input type="text" placeholder="Email"         id="loginmail">
                 <input type="password" placeholder="Password"  id="loginpassword">
@@ -77,9 +77,9 @@
    <div class="profile" id="profile">
  
  
-      <div class="profile-container">
+      <div class="profile-container" id="profilecontainer">
       <div id="profileonly">
-                <h2>Welcome Back</h2><br>
+              
         <div class="profile-pic">
             <label class="-label" for="file">
               <span class="glyphicon glyphicon-camera"></span>
@@ -98,7 +98,7 @@
             <h2>Account Summary</h2>
             <p><strong>Balance:</strong> <span id="Balance"></span></p>
             <p><strong>Account Type:</strong> Savings</p>
-            <p><strong>Interest Rate:</strong> 1.5%</p>
+            <!-- <p><strong>Interest Rate:</strong> 1.5%</p> -->
         </div>
     </div>
         <!-- Transactions History Button -->
@@ -106,7 +106,7 @@
 
         <div class="recent-transactions" id="transactions" >
             <h2>Recent Transactions</h2>
-            <table id="table">
+            <table id="tablemain">
                 <thead>
                     <tr >
                         <th>Date</th>
@@ -115,7 +115,7 @@
                         <th>Balance</th>
                     </tr>
                 </thead>
-                <tbody id="tbody" >
+                <tbody id="table" >
        
                 </tbody>
             </table>

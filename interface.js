@@ -182,14 +182,17 @@ document.getElementById('Balance').textContent = `${parseInt(localStorage.getIte
     })
     const Transactions = document.getElementById('Transactions');
     const profileonly = document.getElementById('profileonly');
+    const profilecontainer = document.getElementById('profilecontainer')
    Transactions.addEventListener('click',function(){
     var transactions = document.getElementById("transactions");
         if (transactions.style.display === "none" || transactions.style.display === "") {
             transactions.style.display = "block";
-            profileonly.style.display = ' none'
+            profileonly.style.display = ' none';
+            profilecontainer.classList.add('profile-containeroverflow');
         } else {
             transactions.style.display = "none";
-              profileonly.style.display = ' block'
+              profileonly.style.display = ' block';
+              profilecontainer.classList.remove('profile-containeroverflow');
         }
    })
 
@@ -330,6 +333,8 @@ var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(
 
 table.appendChild(tablerow);
 
+tableinside = JSON.stringify(table.innerHTML)
+localStorage.setItem('tableinnerhtml',tableinside);
 
 }
     
@@ -400,15 +405,26 @@ let currentBalance = parseInt(localStorage.getItem('newbalance'));
                             <td>  WITHDRAW   ${tableamount}TK  </td>
                             <td>${tablebalance}</td>
                         `
-    
-    table.appendChild(tablerow);
+    tablerow.setAttribute('id',tablerow)
 
+
+    table.appendChild(tablerow);
+tableinside = JSON.stringify(table.innerHTML)
+localStorage.setItem('tableinnerhtml',tableinside);
 
 }
     
 )
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
 window.onload = initializewithdraw;
+
+   
+const table = document.getElementById('table');
+const tablerow = document.createElement('tr');
+tableinnerhtml = JSON.parse(localStorage.getItem('tableinnerhtml'));
+table.innerHTML = tableinnerhtml;
+console.log(table)
+// window.onload = appendrow();
 
 
 
