@@ -149,7 +149,7 @@ document.getElementById('deposit-input').focus()
     })
     Signin2.addEventListener('click',function(){
 
-        if(         !loginmail.value || !loginpassword.value){
+        if(!loginmail.value || !loginpassword.value){
       
             errorMessages.textContent = 'All fields are required.';
             errorMessages.style.color = 'red'  
@@ -157,7 +157,7 @@ document.getElementById('deposit-input').focus()
         else{
          
        
-            if(  loginmail.value ==  mailmatch,
+            if(   loginmail.value == mailmatch ,
                 loginpassword.value == passwordmatch){
                     depositAmount.focus()
                 signin.click();
@@ -522,14 +522,14 @@ rememberme.addEventListener('click',function(){
 })
 
 
-if(!(mailmatch.value=='')  || !(passwordmatch.value=='')){
+// if(!(mailmatch.value=='')  || !(passwordmatch.value=='')){
 
 
-overlaychildid.innerHTML = ` <h2 >Welcome Back</h2>
-                <p style="line-height: 25px;color: #51ffd9;">Login with your account details to access your account</p>`
-                rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
+// overlaychildid.innerHTML = ` <h2 >Welcome Back</h2>
+//                 <p style="line-height: 25px;color: #51ffd9;">Login with your account details to access your account</p>`
+//                 rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
                 
-}
+// }
 loginmail.focus()
 const depositAmount = document.getElementById('deposit-input')
 
