@@ -140,7 +140,7 @@ document.getElementById('deposit-input').focus();
                
             }
             else{
-                      alert("Sorry we couldn't find your account   plz sign if you don't have an account")
+                      alert("Sorry we couldn't find your account plz sign if you don't have an account")
             }
         }
 
