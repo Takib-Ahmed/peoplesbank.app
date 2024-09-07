@@ -74,6 +74,7 @@ signup2.style.display = 'block'
     password:""
 }
 
+
     Signup.addEventListener('click',function(){
         if(!nameinput.value || !emailinput.value || !passwordinput.value || !minimum.value){
   
@@ -82,7 +83,7 @@ signup2.style.display = 'block'
       }
       else{  
         
-    
+      
         signin.click();
         Signin.style.display = 'none'
         Signin2.style.display = ' block';
@@ -92,10 +93,12 @@ signup2.style.display = 'block'
            overlaychild.style.opacity = '0';
            overlaychild.classList.add('transparent');
               rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
+
            
 
 localStorage.setItem('newbalance',parseFloat(minimum.value));
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
+
 document.getElementById('deposit-input').focus();
 userdata.name = nameinput.value;
 userdata.mail = emailinput.value;
@@ -103,13 +106,28 @@ userdata.password = passwordinput.value;
 localStorage.setItem('Username',userdata.name);
 localStorage.setItem('UserMail',userdata.mail);
 localStorage.setItem('Password',userdata.password);
+loginmail.focus();
 
         }
  
  
     })
+    
 
-  
+    minimum.addEventListener('input',(e)=>{
+
+        e.target.addEventListener("keypress", function (event) {
+    
+            if (event.key === "Enter") {
+              event.preventDefault();
+      
+          Signup.click()
+      
+        
+            }
+          })
+        
+    })
 
     const Signin = document.getElementById('Signin');
     const createaccount = document.getElementById('Createaccount')
@@ -272,17 +290,7 @@ passwordinput.addEventListener('input',(e)=>{
       })
     
 })
-minimum.addEventListener('input',(e)=>{
 
-    e.target.addEventListener("keypress", function (event) {
-
-        if (event.key === "Enter") {
-          event.preventDefault();
-    
-        }
-      })
-    
-})
 
 
 const Name = document.getElementById('name')
@@ -333,18 +341,7 @@ balance = document.getElementById('Balance')
 }
 
 // Function to make a deposit and store it in localStorage
-document.getElementById('deposit-input').addEventListener('input',(e)=>{
 
-    e.target.addEventListener("keypress", function (event) {
-
-        if (event.key === "Enter") {
-          event.preventDefault();
-         
-        document.getElementById('withdraw-input').focus()
-        }
-      })
-    
-})
 
 deposit.addEventListener('click',function makeDeposit() {
     const depositAmount = parseFloat(document.getElementById('deposit-input').value);
@@ -404,6 +401,20 @@ localStorage.setItem('tableinnerhtml',tableinside);
 )
 
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
+// document.getElementById('deposit-input').addEventListener('input',(e)=>{
+
+//     e.target.addEventListener("keypress", function (event) {
+
+//         if (event.key === "Enter") {
+//           event.preventDefault();
+         
+//         document.getElementById('withdraw-input').focus();
+//        deposit.click()
+       
+//         }
+//       })
+    
+// })
 // Initialize balance when the page loads
 window.onload = initializeBalance;
 function initializewithdraw() {
@@ -416,20 +427,9 @@ function initializewithdraw() {
 }
 
 
-document.getElementById('withdraw-input').addEventListener('input',(e)=>{
 
-    e.target.addEventListener("keypress", function (event) {
-
-        if (event.key === "Enter") {
-          event.preventDefault();
-          
-        
-        }
-      })
-    
-})
-withdraw = document.getElementById('withdraw')
-
+ withdraw = document.getElementById('withdraw')
+const withdrawamoutn = document.getElementById('withdraw-input');
 withdraw.addEventListener('click',function withdraw() {
     const windrawamount = parseFloat(document.getElementById('withdraw-input').value);
 localStorage.setItem('withdraw',windrawamount)
@@ -498,7 +498,18 @@ localStorage.setItem('tableinnerhtml',tableinside);
 }
     
 )
+// withdrawamoutn.addEventListener('input',(e)=>{
 
+//     e.target.addEventListener("keypress", function (event) {
+
+//         if (event.key === "Enter") {
+//           event.preventDefault();
+          
+//         withdraw.click()
+//         }
+//       })
+    
+// })
 
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
 window.onload = initializewithdraw;
