@@ -121,7 +121,7 @@ loginmail.focus();
             if (event.key === "Enter") {
               event.preventDefault();
       
-          Signup.click()
+        
       
         
             }
