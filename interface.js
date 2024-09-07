@@ -169,6 +169,8 @@ loginmail.focus();
            email.innerText = `${localStorage.getItem('UserMail')}`;
                overlaychildid2.style.display = 'none';
                document.getElementById('deposit-input').focus();
+               loginpassword.value='';
+               loginmail.value = '';
 
                
             }
@@ -211,7 +213,9 @@ loginmail.focus();
                 createaccountform.style.display = 'none';
                       Name.innerText = `${localStorage.getItem('Username')}`;
                email.innerText = `${localStorage.getItem('UserMail')}`;
-                   overlaychildid2.style.display = 'none'
+                   overlaychildid2.style.display = 'none';
+                   loginpassword.value='';
+                   loginmail.value = '';
             }
      
     else{
@@ -237,9 +241,10 @@ loginmail.focus();
    })
 
 
-const nameinput = document.getElementById('nameinput')
-const emailinput = document.getElementById('emailinput')
-const passwordinput = document.getElementById('Passwordinput')
+const nameinput = document.getElementById('nameinput');
+const emailinput = document.getElementById('emailinput');
+const passwordinput = document.getElementById('Passwordinput');
+
 
 // const Storage = [nameinput , emailinput , passwordinput]
 // const Storage2 = ["Username" , "UserMail" , "UserPassword"]
@@ -306,6 +311,7 @@ loginmail.addEventListener('input',(e)=>{
 
         if (event.key === "Enter") {
           event.preventDefault();
+ 
          loginpassword.focus()
         }
       })
@@ -317,9 +323,9 @@ loginpassword.addEventListener('input',(e)=>{
 
         if (event.key === "Enter") {
           event.preventDefault();
-       
-         Signin2.click()
-         Signin.click()
+      
+      
+   
         }
       })
     
