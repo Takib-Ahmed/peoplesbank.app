@@ -382,7 +382,7 @@ var nowDate = new Date();
 var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
   var datetime = date.toLocaleString();
 
-  var time = nowDate.getHours()+'-'+(nowDate.getMinutes()+1)+'-'+nowDate.getSeconds(); 
+  var time = nowDate.getHours()+'-'+nowDate.getMinutes(); 
   var nowtime = time.toLocaleString();
 
     tabledate =datetime ;
@@ -470,7 +470,7 @@ let currentBalance = parseInt(localStorage.getItem('newbalance'));
     var date = nowDate.getFullYear()+'/'+(nowDate.getMonth()+1)+'/'+nowDate.getDate(); 
       var datetime = date.toLocaleString();
     
-      var time = nowDate.getHours()+'-'+(nowDate.getMinutes()+1)+'-'+nowDate.getSeconds(); 
+      var time = nowDate.getHours()+'-'+nowDate.getMinutes(); 
       var nowtime = time.toLocaleString();
     
         tabledate =datetime ;
