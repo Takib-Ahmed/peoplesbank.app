@@ -76,14 +76,15 @@ signup2.style.display = 'block'
 
 
     Signup.addEventListener('click',function(){
-        if(!nameinput.value || !emailinput.value || !passwordinput.value || !minimum.value){
+        if(!nameinput.value || !emailinput.value || !passwordinput.value || !minimum.value ){
   
             errorMessage.textContent = 'All fields are required.';
             errorMessage.style.color = 'red'
       }
-      else{  
-        
-      
+      else{
+        if(minimum.value>0){
+            localStorage.setItem('newbalance',parseFloat(minimum.value));
+                  
         signin.click();
         Signin.style.display = 'none'
         Signin2.style.display = ' block';
@@ -96,7 +97,7 @@ signup2.style.display = 'block'
 
            
 
-localStorage.setItem('newbalance',parseFloat(minimum.value));
+
 document.getElementById('Balance').textContent = `${parseInt(localStorage.getItem('newbalance'))}tk`;
 
 document.getElementById('deposit-input').focus();
@@ -113,6 +114,12 @@ setTimeout(() => {
     
 
 }, 500);
+        }
+        else {
+            alert("Please enter a valid amount");
+        }  
+        
+
 
         }
  
