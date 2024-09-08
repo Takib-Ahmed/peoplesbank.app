@@ -108,6 +108,12 @@ localStorage.setItem('UserMail',userdata.mail);
 localStorage.setItem('Password',userdata.password);
 loginmail.focus();
 
+setTimeout(() => {
+    location.reload();
+    
+
+}, 500);
+
         }
  
  
@@ -219,7 +225,7 @@ loginmail.focus();
             }
      
     else{
-   location.reload()
+alert('')
     }
         }
 
@@ -246,17 +252,6 @@ const emailinput = document.getElementById('emailinput');
 const passwordinput = document.getElementById('Passwordinput');
 
 
-// const Storage = [nameinput , emailinput , passwordinput]
-// const Storage2 = ["Username" , "UserMail" , "UserPassword"]
-// for(i=0;i<Storage.length;i++){
-// ;
-// Storage[i].addEventListener('input', (e)=>{
-        
-// localStorage.setItem(Storage2[i],e.target.value)
-//     })
-// }
-
-// }
 
 
 
@@ -539,13 +534,17 @@ rememberme.addEventListener('click',function(){
 loginmail.focus()
 const depositAmount = document.getElementById('deposit-input')
 
+// if(Signup.click == true){
 
-if(!(mailmatch.value=='')  || !(passwordmatch.value=='')){
+//     document.getElementById('overlaychildid').style.display = 'none';
+// }
+ if(!(mailmatch.value=='')  || !(passwordmatch.value=='')){
+    document.getElementById('overlaychildid2').style.display = 'block';
+      rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
 
-
-overlaychildid.innerHTML = ` <h2 >Welcome Back</h2>
-                <p style="line-height: 25px;color: #51ffd9;">Login with your account details to access your account</p>`
-                rememberme.innerHTML = `<p style="color: #6051ff;font-size: smaller;margin-bottom: 5px;cursor: pointer;">Remember me</p>`
+// overlaychildid.innerHTML = ` <h2 >Welcome Back</h2>
+//                 <p style="line-height: 25px;color: #51ffd9;">Login with your account details to access your account</p>`
+              
                 
 }
 
