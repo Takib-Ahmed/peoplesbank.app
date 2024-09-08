@@ -1493,7 +1493,7 @@ input:valid:not(:placeholder-shown){
 
 input:invalid:not(:placeholder-shown){
 outline-color: red !important;
-border-color: green !important;
+border-color: red !important;
    background-image: url(checked_red.png);
    background-size: 15px;
    background-position: calc(100% - 10px);
