@@ -1516,12 +1516,17 @@ input:invalid:not(:placeholder-shown) + .passwarning {
 
 input:invalid ~ #Signin{
     opacity: 0.5;
+ 
+    cursor:url(signal\ \(1\).png) , auto;
 
-    pointer-events: none;
 }
 
 input:invalid ~ #Signup {
     opacity: 0.5;
+ 
+    cursor:url(signal\ \(1\).png) , auto;
 
-    pointer-events: none;
+
 }
+
+
