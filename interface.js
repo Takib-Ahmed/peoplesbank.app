@@ -107,6 +107,7 @@ userdata.password = passwordinput.value;
 localStorage.setItem('Username',userdata.name);
 localStorage.setItem('UserMail',userdata.mail);
 localStorage.setItem('Password',userdata.password);
+Signup.classList.remove('Signup')
 loginmail.focus();
 
 setTimeout(() => {
@@ -184,6 +185,7 @@ setTimeout(() => {
                document.getElementById('deposit-input').focus();
                loginpassword.value='';
                loginmail.value = '';
+               Signin.classList.remove('Signin')
 
                
             }
@@ -229,6 +231,7 @@ setTimeout(() => {
                    overlaychildid2.style.display = 'none';
                    loginpassword.value='';
                    loginmail.value = '';
+                   Signin2.classList.remove('Signin')
             }
      
     else{
